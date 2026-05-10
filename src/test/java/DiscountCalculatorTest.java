@@ -14,10 +14,16 @@ import org.junit.jupiter.params.provider.CsvSource;
  */
 public class DiscountCalculatorTest {
     
+    @ParameterizedTest
+    @CsvSource({
+        "REGULAR,5,true",
+        "REGULAR,15,false",
+        "PREMIUM,5,false",
+        "PREMIUM,15,true"
+    })
+    void testDiscountCalculation(String customerType,
+                                 int totalOrders,
+                                 boolean subscribed) {
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    }
 }

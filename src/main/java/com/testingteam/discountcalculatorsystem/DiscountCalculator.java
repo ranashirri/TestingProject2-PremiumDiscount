@@ -24,6 +24,10 @@ public class DiscountCalculator {
             discount += 3;
         }
 
+        else if (customerType.equals("PREMIUM")) {
+            discount += 5;
+        }
+
         return discount;
     }
 }

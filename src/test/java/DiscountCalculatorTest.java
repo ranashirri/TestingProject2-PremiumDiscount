@@ -16,14 +16,27 @@ public class DiscountCalculatorTest {
     
     @ParameterizedTest
     @CsvSource({
-        "REGULAR,5,true",
-        "REGULAR,15,false",
-        "PREMIUM,5,false",
-        "PREMIUM,15,true"
+        "NEW,5,false,5",
+        "NEW,5,true,7",
+        "REGULAR,5,false,8",
+        "REGULAR,15,true,15",
+        "PREMIUM,5,true,12",
+        "PREMIUM,15,false,15"
     })
     void testDiscountCalculation(String customerType,
                                  int totalOrders,
                                  boolean subscribed) {
 
+    }
+    @Test
+    void testInfeasibleCombination() {
+
+        assertThrows(IllegalArgumentException.class, () -> {
+
+            DiscountCalculator.calculateDiscount(
+                    "NEW",
+                    15,
+                    true);
+        });
     }
 }

@@ -14,7 +14,7 @@ public class DiscountCalculator {
             int totalOrders,
             boolean subscribed) {
         
-        int discount = 5;
+         int discount = 5;
 
         if (subscribed) {
             discount += 2;
@@ -25,6 +25,10 @@ public class DiscountCalculator {
         }
 
         else if (customerType.equals("PREMIUM")) {
+            discount += 5;
+        }
+
+        if (totalOrders >= 10) {
             discount += 5;
         }
 

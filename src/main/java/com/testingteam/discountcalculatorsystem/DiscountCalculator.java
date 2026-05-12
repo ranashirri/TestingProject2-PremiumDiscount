@@ -20,6 +20,10 @@ public class DiscountCalculator {
             discount += 2;
         }
 
+        if (customerType.equals("REGULAR")) {
+            discount += 3;
+        }
+
         return discount;
     }
 }

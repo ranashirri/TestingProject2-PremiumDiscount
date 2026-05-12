@@ -4,9 +4,12 @@
  */
 
 
+import com.testingteam.discountcalculatorsystem.DiscountCalculator;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-
+import org.junit.jupiter.api.Test;
 
 /**
  *
@@ -24,10 +27,17 @@ public class DiscountCalculatorTest {
         "PREMIUM,15,false,15"
     })
     void testDiscountCalculation(String customerType,
-                                 int totalOrders,
-                                 boolean subscribed) {
+                             int totalOrders,
+                             boolean subscribed,
+                             int expectedDiscount) {
+        int result = DiscountCalculator.calculateDiscount(
+        customerType,
+        totalOrders,
+        subscribed);
 
+        assertEquals(expectedDiscount, result);
     }
+    
     @Test
     void testInfeasibleCombination() {
 

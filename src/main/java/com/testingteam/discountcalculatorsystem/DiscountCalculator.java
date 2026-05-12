@@ -9,5 +9,17 @@ package com.testingteam.discountcalculatorsystem;
  * @author DELL
  */
 public class DiscountCalculator {
-    
+    public static int calculateDiscount(
+            String customerType,
+            int totalOrders,
+            boolean subscribed) {
+        
+        int discount = 5;
+
+        if (subscribed) {
+            discount += 2;
+        }
+
+        return discount;
+    }
 }

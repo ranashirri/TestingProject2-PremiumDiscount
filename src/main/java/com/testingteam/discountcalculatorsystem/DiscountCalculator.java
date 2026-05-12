@@ -15,6 +15,11 @@ public class DiscountCalculator {
             boolean subscribed) {
         
          int discount = 5;
+         
+         if (customerType.equals("NEW") && totalOrders >= 10) {
+            throw new IllegalArgumentException(
+                    "NEW customers cannot have 10 or more orders");
+        }
 
         if (subscribed) {
             discount += 2;
